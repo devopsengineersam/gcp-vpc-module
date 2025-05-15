@@ -14,9 +14,9 @@ module "dspm_vpc_permissions" {
 
   # Custom permissions (keep empty if using predefined roles)
   permissions = []
-}
-
-providers = {
+  
+  providers = {
   aws = aws
   aws.nonprod = aws.nonprod
+}
 }

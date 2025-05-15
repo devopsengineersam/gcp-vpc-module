@@ -43,9 +43,9 @@ module "dspm_vpc_permissions" {
     "iam.serviceAccounts.get",
     "iam.serviceAccounts.list"
   ]
-}
-
-providers = {
+  
+  providers = {
   aws = aws
   aws.nonprod = aws.nonprod
+}
 }

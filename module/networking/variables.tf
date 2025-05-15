@@ -1,7 +1,7 @@
-variable "project_id" {
-  description = "GCP Project ID"
-  type        = string
-}
+# variable "project_id" {
+#   description = "GCP Project ID"
+#   type        = string
+# }
 
 variable "network_name" {
   description = "Name of the VPC network"
@@ -62,19 +62,19 @@ variable "environment" {
   
 }
 
-variable "tags" {
-  description = "Mandatory labels for all resources (lowercase keys only)"
-  type        = map(string)
-  validation {
-    condition     = alltrue([
-      for k in ["aide-id", "service-tier", "owner", "project", "managedby"] : contains(keys(var.tags), k)
-    ])
-    error_message = "Missing required labels: 'aide-id', 'service-tier', 'owner', 'project', 'managedby'"
-  }
-}
+# variable "tags" {
+#   description = "Mandatory labels for all resources (lowercase keys only)"
+#   type        = map(string)
+#   validation {
+#     condition     = alltrue([
+#       for k in ["aide-id", "service-tier", "owner", "project", "managedby"] : contains(keys(var.tags), k)
+#     ])
+#     error_message = "Missing required labels: 'aide-id', 'service-tier', 'owner', 'project', 'managedby'"
+#   }
+# }
 
-variable "environment" {
-  description = "Deployment environment (e.g., prod, dev)"
-  type        = string
-  default     = "dev"
-}
+# variable "environment" {
+#   description = "Deployment environment (e.g., prod, dev)"
+#   type        = string
+#   default     = "dev"
+# }

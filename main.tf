@@ -1,7 +1,5 @@
 module "network" {
-  source = "./modules/networking"
-
-  project_id  = "dspm-dig"
+  source = "./module/networking"
   network_name = "dspm-dig-vpc"
 
   subnet_configurations = {

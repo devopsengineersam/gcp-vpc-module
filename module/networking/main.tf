@@ -1,13 +1,4 @@
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 6.34.0"
-    }
-  }
-}
-
-resource "google_compute_network" "vpc" {
+resource "google_compute_network" "orchestrator_vpc" {
   name                    = var.network_name
   auto_create_subnetworks = false
   routing_mode            = var.routing_mode
@@ -63,13 +54,13 @@ resource "google_compute_global_address" "private_service_access" {
   purpose       = "VPC_PEERING"
   address_type  = "INTERNAL"
   prefix_length = var.private_service_access_prefix_length
-  network       = google_compute_network.vpc.id
+  network       = google_compute_network.orchestrator_vpc.id
 }
 
 resource "google_service_networking_connection" "private_service_connection" {
   count = var.enable_private_service_access ? 1 : 0
 
-  network                 = google_compute_network.vpc.id
+  network                 = google_compute_network.orchestrator_vpc.id
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.private_service_access[0].name]
 }
@@ -79,14 +70,14 @@ resource "google_compute_subnetwork" "regional_subnets" {
   name          = "subnet-${each.key}"
   ip_cidr_range = each.value.cidr_block
   region        = each.key
-  network       = google_compute_network.vpc.id
+  network       = google_compute_network.orchestrator_vpc.id
 }
 
 resource "google_compute_router" "regional_routers" {
   for_each = var.subnet_configurations
   name     = "router-${each.key}"
   region   = each.key
-  network  = google_compute_network.vpc.id
+  network  = google_compute_network.orchestrator_vpc.id
   
   bgp {
     asn = 64514
