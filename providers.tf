@@ -8,7 +8,6 @@ terraform {
   backend "gcs" {
     bucket = "dspm-dig-state-bucket"
     prefix = "terraform/state"
-    # region = "us"
   }
 }
 
