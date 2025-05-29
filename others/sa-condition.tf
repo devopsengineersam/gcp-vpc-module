@@ -32,3 +32,7 @@ resource "google_organization_iam_member" "eis_sectools_scoped_role_member" {
     expression  = "resource.type == 'cloudresourcemanager.googleapis.com/Project' && api.getAttribute('iam.googleapis.com/role_id', '').startsWith('dig_'),title=Restrict IAM Role Creation to 'dig_' prefixed roles"
   }
 }
+
+# api.getAttribute('iam.googleapis.com/role_id', '').startsWith('dig-'),title=Restrict IAM Role Creation to 'dig-' prefixed roles"
+
+"resource.type == 'cloudresourcemanager.googleapis.com/Project' && api.getAttribute('iam.googleapis.com/role_id', '').startsWith('dig_')"
