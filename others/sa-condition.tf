@@ -29,6 +29,6 @@ resource "google_organization_iam_member" "eis_sectools_scoped_role_member" {
   condition {
     title       = "Restrict IAM Role Management to 'dig-' prefixed roles on IAM service"
     description = "Grants permissions to manage IAM custom roles (create, delete, get, undelete, update) only if the resource is an IAM Role, its service is iam.googleapis.com, and the role's ID starts with 'dig-'"
-    expression  = "resource.type == \"iam.googleapis.com/Role\" && resource.service == \"iam.googleapis.com\" && resource.name.extract('/roles/{role_id}').startsWith('dig-')"
+    expression  = "resource.type == 'cloudresourcemanager.googleapis.com/Project' && api.getAttribute('iam.googleapis.com/role_id', '').startsWith('dig_'),title=Restrict IAM Role Creation to 'dig_' prefixed roles"
   }
 }
