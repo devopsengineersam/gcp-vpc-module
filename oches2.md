@@ -48,7 +48,7 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
 
 ### Onboarding Steps
 
-#### Step 1️⃣ : Copy and paste the following code into a the AWS Cloudshell 
+#### Step 1: Copy and paste the following code into a the AWS Cloudshell 
 
 _This will create the main.tf file and paste the code in the file_
    
@@ -86,26 +86,26 @@ EOF
 
    **Note:** Replace `your-unique-bucket-name` and the region values as needed.
 
-#### Step 2️⃣ : Initialize Terraform
+#### Step 2: Initialize Terraform
    ```bash
    terraform init
    ```
 
-#### Step 3️⃣ : Review the Execution Plan
+#### Step 3: Review the Execution Plan
    ```bash
    terraform plan
    ```
 
-#### Step 4️⃣ : Apply the Configuration
+#### Step 4: Apply the Configuration
    ```bash
    terraform apply
    ```
    Type `yes` when prompted to proceed.
 
-#### Step 5️⃣ : Verify Resources
+#### Step 5: Verify Resources
    Confirm the resources are created in the AWS Management Console.
 
-#### Step 6️⃣: Share the AWS Account ID
+#### Step 6: Share the AWS Account ID
    Provide the AWS Account ID where the Orchestrator is installed for verification on the DSPM console.
 
 ---
