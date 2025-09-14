@@ -47,11 +47,9 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
 
 
    # Add the official HashiCorp repository to your system.
-
    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
    # Update apt to download the package information from the HashiCorp repository.
-
    sudo apt update
 
    # Install Terraform
