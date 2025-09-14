@@ -16,9 +16,9 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
 
 ### ✅ Prerequisites
 
-#### 1. Create or Designate a GCP project(Account)
+#### 1. Create or Designate a GCP project/(Account)
    - Create a new AWS account or use an existing one dedicated to running the DSPM Orchestrator.
-   - **Note:** ⚠️ You will notice an increase in costs due to provisioned resources (e.g., EC2 instances, VPCs).
+   - **Note:** ⚠️ You will notice an increase in costs due to provisioned resources (e.g., Virtual machines and VPCs).
 
 #### 2. Install Terraform on GCP Cloud Shell
    Follow these steps to install Terraform:
@@ -38,12 +38,12 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
    --fingerprint
    
    # The gpg command reports the key fingerprint:
-   >/usr/share/keyrings/hashicorp-archive-keyring.gpg
-   > -------------------------------------------------
-   > pub   rsa4096 XXXX-XX-XX [SC]
-   > AAAA AAAA AAAA AAAA
-   > uid         [ unknown] HashiCorp Security (HashiCorp Package Signing) <security+packaging@hashicorp.com>
-   >sub   rsa4096 XXXX-XX-XX [E]
+   #/usr/share/keyrings/hashicorp-archive-keyring.gpg
+   # -------------------------------------------------
+   # pub   rsa4096 XXXX-XX-XX [SC]
+   # AAAA AAAA AAAA AAAA
+   # uid         [ unknown] HashiCorp Security (HashiCorp Package Signing) <security+packaging@hashicorp.com>
+   #sub   rsa4096 XXXX-XX-XX [E]
 
 
    # Add the official HashiCorp repository to your system.
