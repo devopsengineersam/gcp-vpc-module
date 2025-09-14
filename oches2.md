@@ -48,38 +48,41 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
 
 ### Onboarding Steps
 
-#### Step 1: Create the `main.tf` File
-   Copy and paste the following code into a `main.tf` file:
+#### Step 1: Copy and paste the following code into a the AWS Cloudshell 
 
-   ```hcl
-   terraform {
-     required_version = ">= 1.0.0"
+_This will create the main.tf file and paste the code in the file_
+   
+```
+cat > main.tf <<'EOF'
+terraform {
+required_version = ">= 1.0.0"
 
-     required_providers {
-       aws = {
-         source  = "hashicorp/aws"
-         version = "~> 6.13.0"
-       }
-     }
+    required_providers {
+    aws = {
+    source  = "hashicorp/aws"
+    version = "~> 6.13.0"
+    }
+}
 
-     backend "s3" {
-       bucket = "your-unique-bucket-name"  # Replace with your bucket name
-       key    = "terraform.tfstate"
-       region = "us-east-1"                # Replace with your region
-       encrypt = true
-     }
-   }
+backend "s3" {
+    bucket = "cdktf-backend-dev"                # change to your bucket-name
+    key    = "terraform.tfstate"                # e.g. “envs/prod/dspm/terraform.tfstate”
+    region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
+    encrypt = true
+}
+}
 
-   provider "aws" {
-     region = "us-east-1"                  # Replace with your region
-   }
+provider "aws" {
+region = "us-east-1"                          # change to your AWS region accordingly
+}
 
-   module "dig_security_orchestrator" {
-     source      = "https://onboarding.use1.dig.security/aws/terraform/latest/dig-security-roles.zip//dig_security_orchestrator_account"
-     tenant_id   = "806775379468908544"
-     external_id = "046ef5e7089808486948fdeb943f963319933f0a6236363ffa780e1a180ae01"
-   }
-   ```
+module "dig_security_orchestrator" {
+source      = "https://onboarding.use1.dig.security/aws/terraform/latest/dig-security-roles.zip//dig_security_orchestrator_account"
+tenant_id   = "806775379468908544"
+external_id = "046ef5e7089808486948fdeb943f963319933f0a6236363ffa780e1a180ae01"
+}
+EOF
+```
 
    **Note:** Replace `your-unique-bucket-name` and the region values as needed.
 
@@ -115,39 +118,42 @@ For each of the AWS accounts you wish to scan, perform the below steps:
 
 ### Onboarding Steps
 
-#### Step 1: Create the `main.tf` File
-   Copy and paste the following code into a `main.tf` file:
+#### Step 1: Copy and paste the following code into a the AWS Cloudshell 
 
-   ```hcl
-   terraform {
-     required_version = ">= 1.0.0"
+_This will create the main.tf file and paste the code in the file_
 
-     required_providers {
-       aws = {
-         source  = "hashicorp/aws"
-         version = "~> 6.13.0"
-       }
-     }
+```
+cat > main.tf <<'EOF'
+terraform {
+  required_version = ">= 1.0.0"
 
-     backend "s3" {
-       bucket = "your-unique-bucket-name"  # Replace with your bucket name
-       key    = "terraform.tfstate"
-       region = "us-east-1"                # Replace with your region
-       encrypt = true
-     }
-   }
+    required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.13.0"
+    }
+  }
 
-   provider "aws" {
-     region = "us-east-1"                  # Replace with your region
-   }
+  backend "s3" {
+    bucket = "cdktf-backend-dev"                # change to your bucket-name
+    key    = "terraform.tfstate"                # e.g. “envs/prod/dspm/terraform.tfstate”
+    region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
+    encrypt = true
+  }
+}
 
-   module "dig_security_monitored_account" {
-     source                  = "https://onboarding.use1.dig.security/aws/terraform/latest/dig-security-roles.zip//dig_security_monitored_account"
-     tenant_id               = "806775379468908544"
-     external_id             = "046ef5e7089808486948fdeb943f963319933f0a6236363ffa780e1a180ae01"
-     orchestrator_account_id = "your-orchestrator-account-id"  # Replace with Orchestrator Account ID
-   }
-   ```
+provider "aws" {
+  region = "us-east-1"                          # change to your AWS region accordingly
+}
+
+module "dig_security_monitored_account" {
+  source                  = "https://onboarding.use1.dig.security/aws/terraform/latest/dig-security-roles.zip//dig_security_monitored_account"
+  tenant_id               = "806775379468908544"
+  external_id             = "046ef5e7089808486948fdeb943f963319933f0a6236363ffa780e1a180ae01"
+  orchestrator_account_id = <orchestrator_aws_account_id>  #
+}
+EOF
+```
 
    **Note:** Replace `your-unique-bucket-name`, region values, and `your-orchestrator-account-id`.
 
