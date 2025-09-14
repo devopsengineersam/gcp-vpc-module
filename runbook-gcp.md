@@ -142,7 +142,6 @@ _This will create the main.tf file and paste the code in the file_
 
 ```
 cat > main.tf <<'EOF'
-cat > main.tf <<'EOF'
 terraform {
   required_providers {
     google = {
