@@ -1,6 +1,6 @@
 # Data Security Posture Management
 
-**Prisma Cloud DSPM** is an agentless, multi-cloud data security platform that discovers, classifies, protects, and governs sensitive data. As organizations increasingly shift their data assets to the cloud, implementing robust data monitoring capabilities becomes essential. Prisma Cloud DSPM's mission is to provide organizations with these capabilities, ensuring complete visibility and real-time control over potential security risks to their data.
+[**Prisma Cloud DSPM**](https://docs.prismacloud.io/en/enterprise-edition/content-collections/data-security-posture-management/data-security-posture-management) is an agentless, multi-cloud data security platform that discovers, classifies, protects, and governs sensitive data. As organizations increasingly shift their data assets to the cloud, implementing robust data monitoring capabilities becomes essential. Prisma Cloud DSPM's mission is to provide organizations with these capabilities, ensuring complete visibility and real-time control over potential security risks to their data.
 
 ---
 
