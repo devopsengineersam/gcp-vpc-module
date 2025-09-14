@@ -14,6 +14,8 @@ This runbook is intended to help onboard AE's through the CLI, console and terra
 
 #### 1. Create a new AWS account or use an existing account which will be dedicated to running the DSPM Orchestrator
 
+**N/B** _You will notice an increase in cost on the AWS account running the DSPM Orchestrator since resources to enable scanning such as EC2 and underlying networking like VPCs will be provisioned._
+
 All the bellow steps should be ran on the new account's AWS Cloudshell since it already has the AWS CLI installed on it.
 
 #### 2. Install Terraform
