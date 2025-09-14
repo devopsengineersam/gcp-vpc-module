@@ -46,35 +46,32 @@ aws s3 mb s3://bucket-name
 
 ### Onboarding..
 
-### Step 1: Create a file called **main.tf**
+### Step 1: Copy and paste the following code into the main.tf file
+
+_copying and pasting the below code will automatically create the main.tf file and paste the code in the file_
 
 ```
-touch main.tf
-```
-
-### Step 2: Copy and paste the following code into the main.tf file
-
-```
+cat > main.tf <<'EOF'
 terraform {
   required_version = ">= 1.0.0"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.13.0"
+      version = "~> 5.0"
     }
   }
 
   backend "s3" {
-    bucket = "bucket-name"                      # change to your bucket-name
-    key    = "path/to/terraform.tfstate"        # e.g. “envs/prod/dspm/terraform.tfstate”
-    region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
+    bucket  = "your-terraform-state-bucket"
+    key     = "path/to/terraform.tfstate"
+    region  = "us-east-1"
     encrypt = true
   }
 }
 
 provider "aws" {
-  region = "us-east-1"                          # change to your AWS region
+  region = "us-east-1"
 }
 
 module "dig_security_orchestrator" {
@@ -82,6 +79,7 @@ module "dig_security_orchestrator" {
   tenant_id   = "806775379468908544"
   external_id = "046ef5e7089808486948fdeb943f963319933f0a6236363ffa780e1a180ae01"
 }
+EOF
 ```
 
 **N/B: Replace the bucket-name with the bucket name that you created in the prerequisites.**
