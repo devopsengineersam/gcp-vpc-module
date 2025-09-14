@@ -21,20 +21,20 @@ All the bellow steps should be ran on the AWS Cloudshell since it already has th
 
 • Install DNF plugin for config-manager: Amazon Linux 2023 uses dnf as its package manager. 
 ```
-    sudo dnf install -y 'dnf-command(config-manager)'
+sudo dnf install -y 'dnf-command(config-manager)'
 ```
 
 Add the HashiCorp repository. 
 ```
-    sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 ```
 install terraform. 
 ```
-    sudo dnf install -y terraform
+sudo dnf install -y terraform
 ```
 Verify the installation. 
 ```
-    terraform version
+terraform version
 ```
 This command should display the installed Terraform version, confirming a successful installation. 
 
