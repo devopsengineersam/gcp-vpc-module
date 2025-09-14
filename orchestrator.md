@@ -10,11 +10,13 @@ This runbook is intended to help onboard AE's through the CLI, console and terra
 
 **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzing data from your environment. This component enables Prisma Cloud DSPM’s compute resources - e.g., EC2 for AWS, VM for Azure - to scan and analyze your different accounts across the selected cloud platform. You will install Orchestrator in a single dedicated account (a security tooling account) while monitoring other scanned accounts.
 
-#### Prerequisites
+### Prerequisites
+
+#### 1. Create a new AWS account or use an existing account which will be dedicated to running the DSPM Orchestrator
 
 All the bellow steps should be ran on the AWS Cloudshell since it already has the AWS CLI installed on it.
 
-#### 1. Install Terraform
+#### 2. Install Terraform
    In order to run the terraform runbook, terraform must be installed on the AWS Cloudshell
 
    Since AWS Cloudshell by default runs on Amazon Linux2023 operating system, this is how to install Terraform on Amazon Linux 2023, follow these steps: 
@@ -38,7 +40,7 @@ terraform version
 ```
 This command should display the installed Terraform version, confirming a successful installation. 
 
-#### 1. Create an S3 bucket that will be used to hold the terraform state file **(Give the bucket-name a unique name)**
+#### 3. Create an S3 bucket that will be used to hold the terraform state file **(Give the bucket-name a unique name)**
 
 ```
 aws s3 mb s3://bucket-name
@@ -46,7 +48,7 @@ aws s3 mb s3://bucket-name
 
 ### Onboarding..
 
-### Step 1: Copy and paste the following code into the main.tf file
+#### Step 1: Copy and paste the following code into the main.tf file
 
 _copying and pasting the below code will automatically create the main.tf file and paste the code in the file_
 
@@ -84,14 +86,14 @@ EOF
 
 **N/B: Replace the bucket-name with the bucket name that you created in the prerequisites.**
 
-### Step 3: Initialize Terraform
+#### Step 3: Initialize Terraform
 
 ```
 terraform init
 ```
 This command initializes the Terraform configuration, downloads the necessary provider plugin, download the terraform module and sets up the backend.
 
-### Step 4: Review the execution plan
+#### Step 4: Review the execution plan
 
 ```
 terraform plan
@@ -99,12 +101,16 @@ terraform plan
 This command creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in the configuration.
 Go through the plan to get a preview of the resources that will be installed on your AWS account (Orchestrator account)
 
-### Step 5: Apply the configuration
+#### Step 5: Apply the configuration
 
 ```
 terraform apply
 ```
 This command applies the changes required to reach the desired state of the configuration. You will be prompted to confirm before proceeding. Type "yes" to proceed.
 
-### Step 6: Verify the resources
+#### Step 6: Verify the resources
 After the apply is complete, you can verify that the resources have been created in the AWS Management Console.
+
+#### Step 7: Share the AWS account ID
+
+Share the account ID of the account you have installed the orchestrator for us to verify it has been added on the DSPM console
