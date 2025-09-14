@@ -65,7 +65,7 @@ required_version = ">= 1.0.0"
 }
 
 backend "s3" {
-    bucket = "cdktf-backend-dev"                # change to your bucket-name
+    bucket = "your-unique-bucket-name"          # change to your bucket-name
     key    = "terraform.tfstate"                # e.g. “envs/prod/dspm/terraform.tfstate”
     region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
     encrypt = true
@@ -135,7 +135,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "cdktf-backend-dev"                # change to your bucket-name
+    bucket = "your-unique-bucket-name"          # change to your bucket-name
     key    = "terraform.tfstate"                # e.g. “envs/prod/dspm/terraform.tfstate”
     region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
     encrypt = true
