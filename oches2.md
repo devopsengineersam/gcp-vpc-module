@@ -14,7 +14,7 @@ This runbook assists Account Engineers (AEs) in onboarding through the CLI, cons
 
 The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzing data from your environment. It enables Prisma Cloud DSPM’s compute resources (e.g., EC2 for AWS, VM for Azure) to scan and analyze accounts across your cloud platform. The Orchestrator is installed in a single dedicated account (a security tooling account) while monitoring other scanned accounts.
 
-### Prerequisites
+### ✅ Prerequisites
 
 #### 1. Create or Designate an AWS Account
    - Create a new AWS account or use an existing one dedicated to running the DSPM Orchestrator.
