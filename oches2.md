@@ -111,6 +111,8 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
 
 Monitored accounts are the AWS accounts that DSPM will scan.
 
+For each of the AWS accounts you wish to scan, perform the below steps:
+
 ### Onboarding Steps
 
 #### Step 1: Create the `main.tf` File
