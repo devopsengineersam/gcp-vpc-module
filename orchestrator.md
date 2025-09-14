@@ -118,6 +118,8 @@ After the apply is complete, you can verify that the resources have been created
 Share the account ID of the account you have installed the orchestrator for us to verify it has been added on the DSPM console
 
 
+
+
 ## Onboarding the Monitored Accounts.
 
 Monitored accounts refers to the AWS accounts that DSPM will be scanning their resources.
