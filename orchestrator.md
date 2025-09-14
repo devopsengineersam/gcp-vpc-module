@@ -55,23 +55,23 @@ cat > main.tf <<'EOF'
 terraform {
   required_version = ">= 1.0.0"
 
-  required_providers {
+    required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.13.0"
     }
   }
 
   backend "s3" {
-    bucket  = "your-terraform-state-bucket"
-    key     = "path/to/terraform.tfstate"
-    region  = "us-east-1"
+    bucket = "cdktf-backend-dev"                # change to your bucket-name
+    key    = "terraform.tfstate"                # e.g. “envs/prod/dspm/terraform.tfstate”
+    region = "us-east-1"                        # change to your AWS region where you created the S3 bucket in the prerequisites
     encrypt = true
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1"                          # change to your AWS region accordingly
 }
 
 module "dig_security_orchestrator" {
