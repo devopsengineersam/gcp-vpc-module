@@ -37,7 +37,7 @@ The **Prisma Cloud DSPM Orchestrator** is the component responsible for analyzin
    terraform version
    ```
 
-#### 3. Create an S3 Bucket for Terraform State
+#### 3. Create an S3 Bucket for Terraform State file
    Create a uniquely named S3 bucket to store the Terraform state file:
 
    ```bash
