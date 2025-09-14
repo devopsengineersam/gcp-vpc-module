@@ -14,7 +14,7 @@ This runbook is intended to help onboard AE's through the CLI, console and terra
 
 All the bellow steps should be ran on the AWS Cloudshell since it already has the AWS CLI installed on it.
 
-1. Install Terraform
+#### 1.Install Terraform
    In order to run the terraform runbook, terraform must be installed on the AWS Cloudshell
 
    Since AWS Cloudshell by default runs on Amazon Linux2023 operating system, this is how to install Terraform on Amazon Linux 2023, follow these steps: 
@@ -38,5 +38,5 @@ terraform version
 ```
 This command should display the installed Terraform version, confirming a successful installation. 
 
-AI responses may include mistakes.
+
 
